@@ -1,4 +1,4 @@
-### Things I already know
+## Things I already know
 
 This is an API REST of things I know.
 
@@ -14,7 +14,7 @@ Used enviroment variables:
 - DEBUG with the root namespace `api` (recomended value `app:*`)
 - PORT to specify the port
 
-# Params
+### Params
 
 - `-p` or `--port` to specify the port (default 4000).
 - `-d` or `--dev-database` to start the app with the development database (defaults to production database!).
@@ -34,7 +34,7 @@ If there is a request to a not registered endpoint it returns the following obje
 }
 ```
 
-# /things
+### /things
 
 Accepted methods:
 
@@ -76,7 +76,7 @@ Accepted methods:
 
 Please use the standard object schema when posting or putting new things I know.
 
-# /things/:id
+### /things/:id
 
 Accepted methods:
 
@@ -98,7 +98,7 @@ Accepted methods:
 
 If there is a problem with your request it will return one of these two objects:
 
-# Client error
+### Client error
 
 If the error lies within the request itself it will return the following object:
 
@@ -109,7 +109,7 @@ If the error lies within the request itself it will return the following object:
 }
 ```
 
-# Server error
+### Server error
 
 If an error occurs on the server side it returns the following object:
 
