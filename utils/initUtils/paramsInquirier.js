@@ -1,9 +1,7 @@
 const inquirer = require("inquirer");
 
-const askForParams = (paramsToAsk) => {
-  const wantedParams = {};
-
-  Object.keys(paramsToAsk).forEach((paramToAsk) => {
+const askForParam = (paramToAsk) =>
+  new Promise((resolve) => {
     switch (paramToAsk) {
       case "port":
         inquirer
@@ -15,7 +13,7 @@ const askForParams = (paramsToAsk) => {
             },
           ])
           .then((answer) => {
-            wantedParams.port = answer.port;
+            resolve(answer.port);
           });
         break;
       case "devDatabase":
@@ -29,8 +27,7 @@ const askForParams = (paramsToAsk) => {
             },
           ])
           .then((answer) => {
-            wantedParams.devDatabase =
-              answer.devDatabase === "Development database";
+            resolve(answer.devDatabase === "Development database");
           });
         break;
       case "readOnly":
@@ -44,7 +41,7 @@ const askForParams = (paramsToAsk) => {
             },
           ])
           .then((answer) => {
-            wantedParams.readOnly = answer.readOnly === "Yes";
+            resolve(answer.readOnly === "Yes");
           });
         break;
 
@@ -53,7 +50,4 @@ const askForParams = (paramsToAsk) => {
     }
   });
 
-  return wantedParams;
-};
-
-module.exports = askForParams;
+module.exports = askForParam;
