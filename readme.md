@@ -13,35 +13,28 @@ Use `npm i` to install the required dependencies.
 
 ### Used enviroment variables:
 
-- `DEBUG` with the root namespace `api` (recomended value `app:*`).
+- `DEBUG` with the root namespace `app` (recomended value `app:*`).
 - `CONN_STRING` to specify the connection string for the Production database.
 - `DEV_CONN_STRING` to specify the connection string for the Development database.
 
 ### Arguments
 
 To use the arguments do `npm start -- [arguments]`.
+Example of initializing with arguments: `npm start -- -d -p 7685`.
 
 Available arguments:
 
 - `-p` or `--port` to specify the port (default 4000).
 - `-d` or `--dev-database` to start the app with the development database (defaults to production database!).
-- `-r` or `--read-only` to only allow GET requests.
+- `-r` or `--read-only` to only allow `GET` requests.
 
-If one or more arguments is missing the program will ask you for them.
+If one or more arguments is missing the program will ask you for them on start.
 
-Example of initializing with arguments: `npm start -- -d -p 7685`
+
 
 ## Endpoints
 
 Here is a list of the available endpoints:
-If there is a request to a not registered endpoint it returns the following object:
-
-```JSON
-{
-  "error": true,
-  "message": "Resource not found"
-}
-```
 
 ### /things
 
@@ -102,11 +95,21 @@ Accepted methods:
 
 ## Errors
 
-If there is a problem with your request it will return one of these two objects:
+If problem arrises with a request it will return one of these objects:
 
 ### Client error
 
-If the error occurs because the method was not get when opened in read-only mode it will return the following object:
+
+If there's a request to an unregistered endpoint, it returns the following object:
+
+```JSON
+{
+  "error": true,
+  "message": "Resource not found"
+}
+```
+
+If the error occurs because the method was not `GET` when opened in read-only mode, it will return the following object:
 
 ```JSON
 {
@@ -115,7 +118,7 @@ If the error occurs because the method was not get when opened in read-only mode
 }
 ```
 
-If the error lies within the request itself it will return the following object:
+If the error lies within the request itself, it will return the following object:
 
 ```JSON
 {
@@ -127,7 +130,7 @@ If the error lies within the request itself it will return the following object:
 
 ### Server error
 
-If an error occurs on the server side it returns the following object:
+If an error occurs on the server side, it returns the following object:
 
 ```JSON
 {
