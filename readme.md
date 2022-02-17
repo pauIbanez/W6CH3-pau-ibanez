@@ -6,13 +6,16 @@ This is an API REST of things I know.
 
 Use `npm i` to install the required dependencies.
 
-To run the server use `npm start`.
-To run the server in developer mode use `npm run startDev`.
+### Starting up
+  To run the server use `npm start`.
+  
+  To run the server in developer mode use `npm run startDev`.
 
-Used enviroment variables:
+### Used enviroment variables:
 
-- DEBUG with the root namespace `api` (recomended value `app:*`)
-- PORT to specify the port
+- `DEBUG` with the root namespace `api` (recomended value `app:*`).
+- `CONN_STRING` to specify the connection string for the Production database.
+- `DEV_CONN_STRING` to specify the connection string for the Development database.
 
 ### Arguments
 
