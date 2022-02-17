@@ -25,16 +25,6 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.use((req, res, next) => {
-  if (req.globals.readOnly) {
-    const error = new Error("Forbidden!");
-    error.type = errorTypes.forbidden;
-    next(error);
-    return;
-  }
-  next();
-});
-
 router.delete("/:id", async (req, res, next) => {
   const { id } = req.params;
   try {

@@ -14,13 +14,19 @@ Used enviroment variables:
 - DEBUG with the root namespace `api` (recomended value `app:*`)
 - PORT to specify the port
 
-### Params
+### Arguments
+
+To use the arguments do `npm start -- [arguments]`.
+
+Available arguments:
 
 - `-p` or `--port` to specify the port (default 4000).
 - `-d` or `--dev-database` to start the app with the development database (defaults to production database!).
 - `-r` or `--read-only` to only allow GET requests.
 
-If one or more params is missing the program will ask you for them.
+If one or more arguments is missing the program will ask you for them.
+
+Example of initializing with arguments: `npm start -- -d -p 7685`
 
 ## Endpoints
 

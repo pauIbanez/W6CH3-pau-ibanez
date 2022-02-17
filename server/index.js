@@ -7,6 +7,7 @@ const {
   notFoundError,
   generalHandler,
 } = require("./middlewares/errors/errorHandlers");
+const errorTypes = require("./middlewares/errors/errorTypes");
 const router = require("./routers/thingsRouter");
 
 let globals;
@@ -42,6 +43,16 @@ app.use((req, res, next) => {
   req.globals = globals;
   next();
 });
+app.use((req, res, next) => {
+  if (req.globals.readOnly && req.method !== "GET") {
+    const error = new Error("Forbidden!");
+    error.type = errorTypes.forbidden;
+    next(error);
+    return;
+  }
+  next();
+});
+
 app.use("/things", router);
 
 app.use(notFoundError);
