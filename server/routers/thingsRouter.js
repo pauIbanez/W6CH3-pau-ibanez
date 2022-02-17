@@ -1,10 +1,13 @@
 const express = require("express");
 
-const router = express.router();
+const router = express.Router();
 
-router.get("/:idThing ", async (req, res) => {
-  const id = req.params.idThing;
-  console.log(id);
+router.get("/:id", async (req) => {
+  console.log(req.params);
+});
+
+router.get("/", async (req) => {
+  console.log("asaS");
 });
 
 module.exports = router;
