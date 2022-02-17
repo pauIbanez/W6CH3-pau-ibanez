@@ -2,10 +2,12 @@ const debug = require("debug")("app:server");
 const chalk = require("chalk");
 const express = require("express");
 const morgan = require("morgan");
+
 const {
   notFoundError,
   generalHandler,
 } = require("./middlewares/errors/errorHandlers");
+const router = require("./routers/thingsRouter");
 
 let globals;
 const app = express();
@@ -36,6 +38,11 @@ const initializeServer = (recievedGlobals) => {
 
 app.use(morgan("dev"));
 app.use(express.json());
+
+// app.get("/things/:id", (req) => {
+//   console.log(req.params.id);
+// });
+app.use("/things", router);
 
 app.use(notFoundError);
 app.use(generalHandler);
