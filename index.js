@@ -1,7 +1,10 @@
 require("dotenv").config();
 
+const initializeServer = require("./server");
 const getProgramGlobals = require("./utils/initUtils");
 
 (async () => {
-  getProgramGlobals();
+  const globals = await getProgramGlobals();
+
+  await initializeServer(globals);
 })();
