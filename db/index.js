@@ -7,8 +7,11 @@ const connectToDatabase = (connectionString) =>
     debug(chalk.whiteBright("Connecting to database..."));
     mongoose.connect(connectionString, (error) => {
       if (error) {
-        reject(new Error(`Couldn't connect to the database: ${error.message}`));
-        return;
+        const newError = {
+          ...error,
+          message: `Database error: ${error.message}`,
+        };
+        reject(newError);
       }
       debug(chalk.yellowBright("Connection to database SUCESSFULL"));
       resolve();

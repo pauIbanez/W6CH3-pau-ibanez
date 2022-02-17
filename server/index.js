@@ -39,9 +39,6 @@ const initializeServer = (recievedGlobals) => {
 app.use(morgan("dev"));
 app.use(express.json());
 
-// app.get("/things/:id", (req) => {
-//   console.log(req.params.id);
-// });
 app.use("/things", router);
 
 app.use(notFoundError);
