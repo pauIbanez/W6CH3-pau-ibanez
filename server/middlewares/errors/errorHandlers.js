@@ -1,8 +1,9 @@
 const errorTypes = require("./errorTypes");
 
-const generateErrorObject = (errorMessage) => ({
+const generateErrorObject = (errorMessage, info) => ({
   error: true,
   message: errorMessage,
+  info,
 });
 
 const notFoundError = (req, res) => {
@@ -17,7 +18,17 @@ const generalHandler = (err, req, res, next) => {
       res.status(400);
       res.json(
         generateErrorObject(
-          "Looks like your request is not correct, please read the documentation!"
+          "Looks like your request is not correct, please read the documentation!",
+          err.info
+        )
+      );
+      break;
+
+    case errorTypes.forbidden:
+      res.status(403);
+      res.json(
+        generateErrorObject(
+          "Forbidden, this server is only accepting GET requests at the moment"
         )
       );
       break;
