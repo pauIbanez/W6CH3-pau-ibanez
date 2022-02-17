@@ -66,12 +66,9 @@ Accepted methods:
   }
   ```
 
-- `PUT` => Modifies a thing I know and returns the modified thing
+- `PUT` => Modifies a thing I know and returns an empty object
   ```JSON
-  {
-  "id": 0,
-  "text": "This is a modified thing I know"
-  }
+  {}
   ```
 
 Please use the standard object schema when posting or putting new things I know.
@@ -105,7 +102,8 @@ If the error lies within the request itself it will return the following object:
 ```JSON
 {
   "error": true,
-  "message": "Looks like your request is not correct, please read the documentation!"
+  "message": "Looks like your request is not correct, please read the documentation!",
+  "info": "Some extra info"
 }
 ```
 
