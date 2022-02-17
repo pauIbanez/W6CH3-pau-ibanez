@@ -11,7 +11,7 @@ To run the server in developer mode use `npm run startDev`.
 
 Used enviroment variables:
 
-- DEBUG with the root namespace `api`
+- DEBUG with the root namespace `api` (recomended value `app:*`)
 - PORT to specify the port
 
 # Params
@@ -27,7 +27,7 @@ If one or more params is missing the program will ask you for them.
 Here is a list of the available endpoints:
 If there is a request to a not registered endpoint it returns the following object:
 
-```
+```JSON
 {
   "error": true,
   "message": "Resource not found"
@@ -40,18 +40,18 @@ Accepted methods:
 
 - `GET` => Returns a list of the things I know.
 
-  ```
+  ```JSON
   [
     {
-    "id": number
+    "id": 0,
     "text": "This is a thing I know"
     },
     {
-    "id": number
+    "id": 0,
     "text": "This is a thing I know"
     },
     {
-    "id": number
+    "id": 0,
     "text": "This is a thing I know"
     }
   ]
@@ -59,17 +59,17 @@ Accepted methods:
 
 - `POST` => Creates a new thing I know (thanks) and returns it with the assigned Id.
 
-  ```
+  ```JSON
   {
-  "id": number
+  "id": 0,
   "text": "This is a new thing I know"
   }
   ```
 
 - `PUT` => Modifies a thing I know and returns the modified thing
-  ```
+  ```JSON
   {
-  "id": number
+  "id": 0,
   "text": "This is a modified thing I know"
   }
   ```
@@ -82,15 +82,15 @@ Accepted methods:
 
 - `GET` => Returns the specified thing I know.
 
-  ```
+  ```JSON
   {
-  "id": number
+  "id": 0,
   "text": "This is a thing I know"
   }
   ```
 
 - `DELETE` => Deletes the specified thing I know and returns an empty object.
-  ```
+  ```JSON
   {}
   ```
 
@@ -102,7 +102,7 @@ If there is a problem with your request it will return one of these two objects:
 
 If the error lies within the request itself it will return the following object:
 
-```
+```JSON
 {
   "error": true,
   "message": "Looks like your request is not correct, please read the documentation!"
@@ -113,7 +113,7 @@ If the error lies within the request itself it will return the following object:
 
 If an error occurs on the server side it returns the following object:
 
-```
+```JSON
 {
   "error": true,
   "message": "Opps, something went wrong processing your request"
