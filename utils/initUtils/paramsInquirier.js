@@ -10,6 +10,7 @@ const askForParam = (paramToAsk) =>
               name: "port",
               message: "Which port do you want to use?",
               type: "input",
+              default: 4000,
             },
           ])
           .then((answer) => {

@@ -2,6 +2,7 @@
 /* eslint-disable no-await-in-loop */
 const debug = require("debug")("app:utils:initUtils");
 
+const chalk = require("chalk");
 const getArguments = require("./argumentsHandler");
 const askForParam = require("./paramsInquirier");
 
@@ -17,12 +18,18 @@ const getProgramGlobals = async () => {
     }
   });
   if (wantedParams.length !== 0) {
+    debug(
+      chalk.yellowBright(
+        "Looks like I need more data, please answer the questions"
+      )
+    );
+
     for (const wantedParam of wantedParams) {
       const paramValue = await askForParam(wantedParam);
       params[wantedParam] = paramValue;
     }
   }
-  debug(params);
+  return params;
 };
 
 module.exports = getProgramGlobals;
