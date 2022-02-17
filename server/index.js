@@ -38,7 +38,10 @@ const initializeServer = (recievedGlobals) => {
 
 app.use(morgan("dev"));
 app.use(express.json());
-
+app.use((req, res, next) => {
+  req.globals = globals;
+  next();
+});
 app.use("/things", router);
 
 app.use(notFoundError);
