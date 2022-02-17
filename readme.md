@@ -1,4 +1,4 @@
-## Things I already know
+# Things I already know
 
 This is an API REST of things I know.
 
@@ -102,6 +102,15 @@ Accepted methods:
 If there is a problem with your request it will return one of these two objects:
 
 ### Client error
+
+If the error occurs because the method was not get when opened in read-only mode it will return the following object:
+
+```JSON
+{
+  "error": true,
+  "message": "Forbidden, this server is only accepting GET requests at the moment",
+}
+```
 
 If the error lies within the request itself it will return the following object:
 
