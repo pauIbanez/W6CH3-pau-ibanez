@@ -9,6 +9,11 @@ Use `npm i` to install the required dependencies.
 To run the server use `npm start`.
 To run the server in developer mode use `npm run startDev`.
 
+Used enviroment variables:
+
+- DEBUG with the root namespace `api`
+- PORT to specify the port
+
 # Params
 
 - `-p` or `--port` to specify the port (default 4000).
