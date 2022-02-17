@@ -24,7 +24,7 @@ const askForParam = (paramToAsk) =>
               name: "devDatabase",
               message: "Which database do you want to use?",
               type: "list",
-              choices: ["Production database", "Development database"],
+              choices: ["Development database", "Production database"],
             },
           ])
           .then((answer) => {
